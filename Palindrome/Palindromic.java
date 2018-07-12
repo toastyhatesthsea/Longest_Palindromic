@@ -14,7 +14,7 @@ public class Palindromic
         for (int i = 0; i < s.length() && longestLength < s.length() - (i-anchor); i++)
         {
             String firstLetter = s.substring(i, i + 1);
-            for (int j = i+anchor; j <= s.length(); j++)
+            for (int j = i+anchor; j <= s.length() && longestLength < (s.length() - (j -i)); j++)
             {
                 String aSubString = s.substring(i, j);
                 String consecutiveString = s.substring(j - 1, j);
@@ -23,12 +23,13 @@ public class Palindromic
                 {
                     answer = aSubString;
                     longestLength = (j - i);
+                    anchor = longestLength;
                 }
                 else if((j) - i > longestLength && isPalin(aSubString))
                 {
                     answer = aSubString;
                     longestLength = (j - i);
-                    anchor = longestLength - 1;
+                    anchor = longestLength;
                 }
 
                 if (!firstLetter.equals(consecutiveString))
@@ -96,6 +97,7 @@ class PalindromicTesters
         String secondDrome = "DocNoteIDissentAFastNeverPreventsAFatnessIDietOnCod";
         String singleA = "a";
         String baseCase = "babad";
+        String abba = "abbcbnnnbabbbbba";
         String cbbd = "cbbd";
         String aba = "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa";
         secondDrome = secondDrome.toLowerCase();
@@ -106,7 +108,7 @@ class PalindromicTesters
 
         Palindromic palin = new Palindromic();
 
-        String answer = palin.longestPalindrome(baseCase);
+        String answer = palin.longestPalindrome(abba);
 
         System.out.print(answer.length());
     }
