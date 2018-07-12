@@ -22,6 +22,11 @@ public class Palindromic
                     longestLength = (j - i);
                     anchor = longestLength - 1;
                 }
+
+                if (j == s.length() && anchor == i)
+                {
+                    anchor = anchor + 2;
+                }
             }
         }
         return answer;
@@ -74,7 +79,7 @@ class PalindromicTesters
 {
     public static void main(String[] argsgsg)
     {
-        String rawrs = "abaaabba";
+        String rawrs = "cbbd";
 
         Palindromic palin = new Palindromic();
 
