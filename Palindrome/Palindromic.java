@@ -9,8 +9,9 @@ public class Palindromic
         String answer = "";
         int longestLength = 0;
         int anchor = 1;
+        int length = s.length();
 
-        for (int i = 0; i < s.length()-1; i++)
+        for (int i = 0; i < s.length() && longestLength <s.length(); i++)
         {
             for (int j = i+1; j <= s.length(); j++)
             {
@@ -83,11 +84,16 @@ class PalindromicTesters
         String rawrs = "civilwartestingwhetherthatnaptionoranynartionsoconceivedands";
         String aDrome = "EvaCanIStabBatsInACave";
         String secondDrome = "DocNoteIDissentAFastNeverPreventsAFatnessIDietOnCod";
+        String singleA = "a";
+        String aba = "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa";
         secondDrome = secondDrome.toLowerCase();
+        String allFF = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
         aDrome = aDrome.toLowerCase();
 
         Palindromic palin = new Palindromic();
 
-        String answer = palin.longestPalindrome(rawrs);
+        String answer = palin.longestPalindrome(aba);
+
+        System.out.print(answer.length());
     }
 }
