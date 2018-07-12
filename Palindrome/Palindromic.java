@@ -19,22 +19,12 @@ public class Palindromic
                 String aSubString = s.substring(i, j);
                 String consecutiveString = s.substring(j - 1, j);
 
-                if (firstLetter.equals(consecutiveString) && longestLength < (j-i))
-                {
-                    answer = aSubString;
-                    longestLength = (j - i);
-                    anchor = longestLength;
-                }
-                else if((j) - i > longestLength && isPalin(aSubString))
-                {
-                    answer = aSubString;
-                    longestLength = (j - i);
-                    anchor = longestLength;
-                }
 
-                if (!firstLetter.equals(consecutiveString))
+                if((j) - i > longestLength && isPalin(aSubString))
                 {
-                    firstLetter = "";
+                    answer = aSubString;
+                    longestLength = (j - i);
+                    anchor = longestLength;
                 }
             }
         }
