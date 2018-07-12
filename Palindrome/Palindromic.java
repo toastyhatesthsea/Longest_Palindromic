@@ -8,25 +8,23 @@ public class Palindromic
 
         String answer = "";
         int longestLength = 0;
-        int anchor = 0;
+        int anchor = 1;
 
         for (int i = 0; i < s.length(); i++)
         {
-            for (int j = anchor; j < s.length(); j++)
+            for (int j = anchor; j <= s.length() && ((s.length() - i) >= longestLength); j++)
             {
                 String aSubString = s.substring(i, j);
 
                 if (isPalin(aSubString) && (j + 1) - i > longestLength)
                 {
                     answer = aSubString;
-                    longestLength = (j + 1) - i;
+                    longestLength = (j - i);
                     anchor = longestLength - 1;
                 }
             }
         }
-
-
-        return "";
+        return answer;
     }
 
     public boolean isPalindrome(String s)
@@ -58,11 +56,14 @@ public class Palindromic
         {
             return true;
         }
-        else if(!s.substring(0, 1).equals(s.substring(s.length() - 1, s.length())))
+        else if (s.isEmpty())
         {
             return false;
         }
-        else
+        else if (!s.substring(0, 1).equals(s.substring(s.length() - 1, s.length())))
+        {
+            return false;
+        } else
         {
             return isPalin(s.substring(1, s.length() - 1));
         }
@@ -73,10 +74,10 @@ class PalindromicTesters
 {
     public static void main(String[] argsgsg)
     {
-        String rawrs = "abaa";
+        String rawrs = "abaaabba";
 
         Palindromic palin = new Palindromic();
 
-        palin.isPalin(rawrs);
+        String answer = palin.longestPalindrome(rawrs);
     }
 }
