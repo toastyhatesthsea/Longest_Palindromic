@@ -11,20 +11,31 @@ public class Palindromic
         int anchor = 1;
         int length = s.length();
 
-        for (int i = 0; i < s.length() && longestLength < s.length() - (i-anchor); i++)
+        if (s.length() > 1 && s.substring(0, 1).equals(s.substring(s.length() - 1, s.length())))
         {
-            String firstLetter = s.substring(i, i + 1);
-            for (int j = i+anchor; j <= s.length() && longestLength < (s.length() - (j -i)); j++)
+            boolean isAPalindrome = isPalin(s);
+            if (isAPalindrome)
             {
-                String aSubString = s.substring(i, j);
-                String consecutiveString = s.substring(j - 1, j);
-
-
-                if((j) - i > longestLength && isPalin(aSubString))
+                answer = s;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < s.length() && longestLength < s.length() - (i-anchor); i++)
+            {
+                String firstLetter = s.substring(i, i + 1);
+                for (int j = i+anchor; j <= s.length(); j++)
                 {
-                    answer = aSubString;
-                    longestLength = (j - i);
-                    anchor = longestLength;
+                    String aSubString = s.substring(i, j);
+                    String consecutiveString = s.substring(j - 1, j);
+
+
+                    if((j) - i > longestLength && isPalin(aSubString))
+                    {
+                        answer = aSubString;
+                        longestLength = (j - i);
+                        anchor = longestLength;
+                    }
                 }
             }
         }
@@ -98,7 +109,7 @@ class PalindromicTesters
 
         Palindromic palin = new Palindromic();
 
-        String answer = palin.longestPalindrome(abba);
+        String answer = palin.longestPalindrome(allFF);
 
         System.out.print(answer.length());
     }
