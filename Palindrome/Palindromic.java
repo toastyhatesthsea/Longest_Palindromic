@@ -28,7 +28,7 @@ public class Palindromic
                 {
                     answer = aSubString;
                     longestLength = (j - i);
-                    //anchor = longestLength - 1;
+                    anchor = longestLength - 1;
                 }
 
                 if (!firstLetter.equals(consecutiveString))
