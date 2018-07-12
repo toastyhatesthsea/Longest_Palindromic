@@ -12,7 +12,7 @@ public class Palindromic
 
         for (int i = 0; i < s.length()-1; i++)
         {
-            for (int j = anchor; j <= s.length() && ((s.length() - i) >= longestLength); j++)
+            for (int j = i+1; j <= s.length(); j++)
             {
                 String aSubString = s.substring(i, j);
 
@@ -23,10 +23,7 @@ public class Palindromic
                     anchor = longestLength - 1;
                 }
 
-                if (j == s.length() && anchor == i)
-                {
-                    anchor = anchor + 2;
-                }
+
             }
         }
         return answer;
