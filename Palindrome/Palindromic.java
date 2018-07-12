@@ -10,13 +10,13 @@ public class Palindromic
         int longestLength = 0;
         int anchor = 1;
 
-        for (int i = 0; i < s.length(); i++)
+        for (int i = 0; i < s.length()-1; i++)
         {
             for (int j = anchor; j <= s.length() && ((s.length() - i) >= longestLength); j++)
             {
                 String aSubString = s.substring(i, j);
 
-                if (isPalin(aSubString) && (j + 1) - i > longestLength)
+                if (isPalin(aSubString) && (j) - i > longestLength)
                 {
                     answer = aSubString;
                     longestLength = (j - i);
@@ -65,6 +65,10 @@ public class Palindromic
         {
             return false;
         }
+        else if (s.length() == 2 && s.substring(0, 1).equals(s.substring(s.length() - 1, s.length()) ))
+        {
+            return true;
+        }
         else if (!s.substring(0, 1).equals(s.substring(s.length() - 1, s.length())))
         {
             return false;
@@ -79,7 +83,11 @@ class PalindromicTesters
 {
     public static void main(String[] argsgsg)
     {
-        String rawrs = "cbbd";
+        String rawrs = "civilwartestingwhetherthatnaptionoranynartionsoconceivedands";
+        String aDrome = "EvaCanIStabBatsInACave";
+        String secondDrome = "DocNoteIDissentAFastNeverPreventsAFatnessIDietOnCod";
+        secondDrome = secondDrome.toLowerCase();
+        aDrome = aDrome.toLowerCase();
 
         Palindromic palin = new Palindromic();
 
