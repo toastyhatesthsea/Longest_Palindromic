@@ -14,12 +14,8 @@ public class Palindromic
 
         for (int i = 0; !done && i < s.length() && longestLength < s.length() - (i - anchor); i++)
         {
-            //String firstLetter = s.substring(i, i + 1);
-            if (i + 1 < s.length() && i - 1 > 0)
-            {
-                String anotherSubstring = s.substring(i + 1, s.length() - i);
-                done = isPalindrome(anotherSubstring);
-            }
+            String anotherSubstring = s.substring(i, s.length() - i);
+            done = isPalindrome(anotherSubstring);
 
             if (!done)
             {
@@ -37,7 +33,7 @@ public class Palindromic
                 }
             } else
             {
-                return s;
+                return ;
             }
         }
 
@@ -113,7 +109,7 @@ class PalindromicTesters
 
         Palindromic palin = new Palindromic();
 
-        String answer = palin.longestPalindrome(abba);
+        String answer = palin.longestPalindrome(baseCase);
 
         System.out.print(answer.length());
     }
